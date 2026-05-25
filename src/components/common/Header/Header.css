@@ -31,6 +31,8 @@
 }
 
 .headerNav a {
+    display: block;
+    padding: 10px 20px;
     text-decoration: underline;
     color: #333;
     font-size: 16px;
@@ -48,6 +50,13 @@
     color: #333;
     margin-right: 15px;
     font-weight: bold;
+    padding: 10px 20px;
+}
+
+.cartLink:hover {
+    background-color: #e1dbdb;
+    border-radius: 5px;
+    color: black;
 }
 
 .btnDark {
@@ -63,4 +72,10 @@
 
 .btnDark:hover {
     background-color: #333;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
 }

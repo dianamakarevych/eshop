@@ -1,18 +1,19 @@
 import './Header.css'
 import { Link } from 'react-router-dom';
+import logoImage from '../../../assets/Logo.png';
 
 function Header(){
     return(
         <header className='header'>
             <div className='headerLeft'>
                 <Link to="/" className='logoLink'>
-                    <span className='logo'>Logo</span>
+                    <span className='logo'><img src={logoImage} alt="Logo" /></span>
                     <span className='logoName'>Tea shop</span>
                 </Link>
             </div>
 
             <nav className='headerNav'>
-                <Link to="/products">Products</Link>
+                <Link to="/">Products</Link>
                 <Link to="/about">About</Link>
                 <Link to="/contacts">Contacts</Link>
             </nav>
