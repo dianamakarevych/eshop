@@ -10,6 +10,7 @@ function App() {
         <h1>Eshop</h1>
         <nav>
           <Link to="/">Home</Link>
+          <Link to="/contact">Contact</Link>
           <Link to="/profile">Profile</Link>
         </nav>
       </header>
