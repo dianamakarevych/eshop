@@ -1,9 +1,11 @@
-import './Products.css';
+import ProductList from "../../components/features/productList/ProductList";
+import "./Products.css";
 
-function Products(): JSX.Element {
+function Products() {
   return (
     <div className="pageContainer">
-      <h1>Products</h1>
+      <h1>Produkty</h1>
+      <ProductList />
     </div>
   );
 }

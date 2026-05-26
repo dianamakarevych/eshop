@@ -13,15 +13,19 @@ export interface Product {
   };
 }
 
+async function fetchProducts(): Promise<Product[]> {
+  const response = await fetch(`${BASE_URL}/products`);
+
+  if (!response.ok) {
+    throw new Error("Products could not be loaded from the API.");
+  }
+
+  return response.json();
+}
+
 export const ApiService = {
   getProducts: async (): Promise<Product[]> => {
-    const response = await fetch(`${BASE_URL}/products`);
-
-    if (!response.ok) {
-      throw new Error("Products could not be loaded from the API.");
-    }
-
-    return response.json();
+    return fetchProducts();
   },
 
   getProductById: async (id: number | string): Promise<Product> => {

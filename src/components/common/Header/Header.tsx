@@ -1,30 +1,78 @@
-import './Header.css';
-import { Link } from 'react-router-dom';
-import logoImage from '../../../assets/Logo.png';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import logoImage from "../../../assets/Logo.png";
+import "./Header.css";
+
+type CurrentUser = {
+  username: string;
+  email: string;
+};
 
 function Header(): JSX.Element {
-    return(
-        <header className='header'>
-            <div className='headerLeft'>
-                <Link to="/" className='logoLink'>
-                    <span className='logo'><img src={logoImage} alt="Logo" /></span>
-                    <span className='logoName'>Tea shop</span>
-                </Link>
-            </div>
+  const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null);
 
-            <nav className='headerNav'>
-                <Link to="/">Products</Link>
-                <Link to="/about">About</Link>
-                <Link to="/contacts">Contacts</Link>
-            </nav>
+  useEffect(() => {
+    const syncUser = () => {
+      const savedUser = localStorage.getItem("eshop-current-user");
+      setCurrentUser(savedUser ? JSON.parse(savedUser) : null);
+    };
 
-            <div className='headerRight'>
-                <Link to="/cart" className="cartLink">Košík</Link>
-                <button className="btnDark">Log in</button>
-                <button className="btnDark">Sign up</button>
-            </div>
-        </header>
-    );
+    syncUser();
+    window.addEventListener("auth-change", syncUser);
+    window.addEventListener("storage", syncUser);
+
+    return () => {
+      window.removeEventListener("auth-change", syncUser);
+      window.removeEventListener("storage", syncUser);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("eshop-current-user");
+    window.dispatchEvent(new Event("auth-change"));
+  };
+
+  return (
+    <header className="header">
+      <div className="headerLeft">
+        <Link to="/" className="logoLink">
+          <span className="logo">
+            <img src={logoImage} alt="Logo" />
+          </span>
+          <span className="logoName">Tea shop</span>
+        </Link>
+      </div>
+
+      <nav className="headerNav">
+        <Link to="/">Products</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contacts">Contacts</Link>
+      </nav>
+
+      <div className="headerRight">
+        <Link to="/cart" className="cartLink">
+          Kosik
+        </Link>
+        {currentUser ? (
+          <>
+            <span className="headerUser">{currentUser.username}</span>
+            <button className="btnDark" type="button" onClick={handleLogout}>
+              Log out
+            </button>
+          </>
+        ) : (
+          <>
+            <Link className="btnDark" to="/login">
+              Log in
+            </Link>
+            <Link className="btnDark" to="/register">
+              Sign up
+            </Link>
+          </>
+        )}
+      </div>
+    </header>
+  );
 }
 
 export default Header;

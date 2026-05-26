@@ -1,0 +1,98 @@
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 2rem 1rem;
+  background: #f5f7f3;
+}
+
+.auth-form {
+  width: min(100%, 420px);
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.auth-form h1 {
+  margin: 0 0 1.5rem;
+  color: #1c1d64;
+  text-align: center;
+}
+
+.auth-home-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #0d6b00;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.auth-submit {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: #0d6b00;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-submit:hover {
+  background-color: #00910a;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.25rem 0;
+  color: #777777;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #dddddd;
+}
+
+.divider span {
+  display: inline;
+  color: #777777;
+}
+
+.signin-text {
+  margin: 1rem 0 0;
+  color: #555555;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.signin-btn {
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #0d6b00;
+  background: none;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.form-error {
+  margin: 0 0 1rem;
+  padding: 0.75rem;
+  border: 1px solid #d93025;
+  border-radius: 6px;
+  color: #d93025;
+  background-color: #fff1f0;
+  font-size: 0.9rem;
+}
