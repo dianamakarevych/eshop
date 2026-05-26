@@ -73,3 +73,18 @@ button {
 .signin-btn:hover {
   color: rgb(28, 29, 100);
 }
+
+.home-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+  z-index: 999;
+}
