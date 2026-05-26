@@ -1,0 +1,131 @@
+import { useState } from "react";
+import "./MoodPage.css";
+import greenTeaImg from "../assets/moodpage/greentes.jpg";
+import Matcha from "../assets/moodpage/matcha iced latte 🍵🧊.jpg";
+import GinkoImg from "../assets/moodpage/Ginkgo Bilobaart.jpg";
+
+type Tea = {
+    name: string;
+    description: string;
+    benefit: string;
+    image: string;
+};
+
+type Mood = {
+    id: number;
+    icon: string;
+    title: string;
+    subtitle: string;
+    teas: Tea[];
+};
+
+const moods: Mood[] = [
+    {
+        id: 1, icon: "🌿", title: "Focus",
+        subtitle: "Clear mind, sustained energy without the crash.",
+        teas: [
+            { name: "Green Tea", description: "Light and fresh", benefit: "Boosts concentration with gentle caffeine", image: greenTeaImg },
+            { name: "Matcha", description: "Rich and earthy", benefit: "Sustained energy and mental clarity", image: Matcha },
+            { name: "Ginkgo Biloba", description: "Herbal and mild", benefit: "Enhances memory and focus", image: GinkoImg },
+        ],
+    },
+    {
+        id: 2, icon: "🌙", title: "Unwind",
+        subtitle: "Gentle, calming herbs to ease the evening.",
+        teas: [
+            { name: "Chamomile", description: "Floral and soothing", benefit: "Calms the mind before sleep", image: "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=300" },
+            { name: "Lavender", description: "Soft and fragrant", benefit: "Reduces stress and anxiety", image: "https://images.unsplash.com/photo-1611073615830-9e1ffd6e1b11?w=300" },
+            { name: "Valerian Root", description: "Earthy and deep", benefit: "Promotes deep relaxation", image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=300" },
+        ],
+    },
+    {
+        id: 3, icon: "⚡", title: "Energise",
+        subtitle: "Bold, robust teas to kickstart your morning.",
+        teas: [
+            { name: "Black Tea", description: "Bold and strong", benefit: "High caffeine for a morning boost", image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=300" },
+            { name: "Yerba Mate", description: "Smoky and rich", benefit: "Long-lasting energy without jitters", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=300" },
+            { name: "Ginger Tea", description: "Spicy and warming", benefit: "Stimulates circulation and energy", image: "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=300" },
+        ],
+    },
+    {
+        id: 4, icon: "☁️", title: "Explore",
+        subtitle: "Complex, rare finds for the curious palate.",
+        teas: [
+            { name: "Pu-erh", description: "Deep and aged", benefit: "Unique fermented taste, aids digestion", image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300" },
+            { name: "White Peony", description: "Delicate and rare", benefit: "Light floral notes, high antioxidants", image: "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=300" },
+            { name: "Oolong", description: "Balanced and complex", benefit: "Between green and black, unique flavor", image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=300" },
+        ],
+    },
+    {
+        id: 5, icon: "🌸", title: "Refresh",
+        subtitle: "Cool and vibrant teas to reset your day.",
+        teas: [
+            { name: "Peppermint", description: "Cool and crisp", benefit: "Refreshes the mind and aids digestion", image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=300" },
+            { name: "Hibiscus", description: "Tart and fruity", benefit: "Rich in vitamin C, cooling effect", image: "https://images.unsplash.com/photo-1611073615830-9e1ffd6e1b11?w=300" },
+            { name: "Lemon Verbena", description: "Citrusy and bright", benefit: "Uplifting and refreshing", image: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=300" },
+        ],
+    },
+    {
+        id: 6, icon: "🕯️", title: "Ritual",
+        subtitle: "Slow down and savour every sip.",
+        teas: [
+            { name: "Ceremonial Matcha", description: "Vibrant and umami", benefit: "Mindful preparation, zen-like focus", image: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=300" },
+            { name: "Gyokuro", description: "Sweet and shaded", benefit: "Premium Japanese green, meditative", image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300" },
+            { name: "Rose Tea", description: "Romantic and soft", benefit: "Perfect for a calming daily ritual", image: "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=300" },
+        ],
+    },
+];
+
+const MoodPage = () => {
+    const [selectedMood, setSelectedMood] = useState<Mood | null>(null);
+
+    return (
+        <div className="mood-page">
+            <a href="/" className="home-link">← Go to main page</a>
+
+            {!selectedMood ? (
+                <div className="mood-intro">
+                    <p className="mood-number">01</p>
+                    <h1 className="mood-title">Find your <em>mood.</em></h1>
+                    <p className="mood-subtitle">
+                        Not sure where to start? Let your current state of mind guide you to the perfect cup.
+                    </p>
+                    <div className="mood-grid">
+                        {moods.map((mood) => (
+                            <div
+                                key={mood.id}
+                                className="mood-card"
+                                onClick={() => setSelectedMood(mood)}
+                            >
+                                <span className="mood-icon">{mood.icon}</span>
+                                <h2>{mood.title}</h2>
+                                <p>{mood.subtitle}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ) : (
+                <div className="tea-results">
+                    <button className="back-btn" onClick={() => setSelectedMood(null)}>
+                        ← Back
+                    </button>
+                    <p className="mood-icon-large">{selectedMood.icon}</p>
+                    <h1>{selectedMood.title}</h1>
+                    <p className="mood-subtitle">{selectedMood.subtitle}</p>
+                    <div className="tea-grid">
+                        {selectedMood.teas.map((tea, index) => (
+                            <div key={index} className="tea-card">
+                                <img src={tea.image} alt={tea.name} className="tea-image" />
+                                <h2>{tea.name}</h2>
+                                <p className="tea-description">{tea.description}</p>
+                                <p className="tea-benefit">{tea.benefit}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default MoodPage;
