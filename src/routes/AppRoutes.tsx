@@ -4,8 +4,7 @@ import About from '../pages/About/About';
 import Contacts from '../pages/Contacts/Contacts';
 import Cart from '../pages/Cart/Cart';
 
-
-function AppRoutes() {
+function AppRoutes(): JSX.Element {
   return (
     <Routes>
       <Route path="/" element={<Products />} />

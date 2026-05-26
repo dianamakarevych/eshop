@@ -1,8 +1,8 @@
-import './Header.css'
+import './Header.css';
 import { Link } from 'react-router-dom';
 import logoImage from '../../../assets/Logo.png';
 
-function Header(){
+function Header(): JSX.Element {
     return(
         <header className='header'>
             <div className='headerLeft'>
@@ -20,10 +20,11 @@ function Header(){
 
             <div className='headerRight'>
                 <Link to="/cart" className="cartLink">Košík</Link>
-                    <button className="btnDark">Log in</button>
-                    <button className="btnDark">Sign up</button>
+                <button className="btnDark">Log in</button>
+                <button className="btnDark">Sign up</button>
             </div>
         </header>
     );
 }
+
 export default Header;
