@@ -69,7 +69,7 @@ function Register() {
             placeholder: "Password",
             errorMessage: "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
             label: "Password",
-            pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,20}`,
+            pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*_])[A-Za-z0-9!@#$%^&*_]{8,20}`,
             required: true,
         },
         {
@@ -109,24 +109,61 @@ function Register() {
         e.preventDefault();
 
         if (isLogin) {
-            // Fake validation — replace with real API call later
-            if (signInValues.email === "" || signInValues.password === "") {
-                setError("Please fill in all fields.");
-            } else if (signInValues.password.length < 8) {
-                setError("Wrong password!");
-            } else {
-                setError("");
-                alert(`Welcome back ${signInValues.email}!`);
+            const usersString = localStorage.getItem("users");
+            
+            if (!usersString) {
+                setError("The database is empty. Please sign up first!");
+                return;
             }
+
+            const users = JSON.parse(usersString);
+            const foundUser = users.find(
+                (u: any) => u.email === signInValues.email && u.password === signInValues.password
+            );
+
+            if (foundUser) {
+                localStorage.setItem("currentUser", JSON.stringify(foundUser));
+                setError("");
+                alert(`Welcome, ${foundUser.username}!`);
+                window.location.href = "/";
+            } else {
+                setError("Invalid email or password!");
+            }
+            
         } else {
             if (values.password !== values.confirmPassword) {
                 setError("Passwords don't match!");
-            } else if (values.username.length < 3) {
+                return;
+            } 
+            
+            if (values.username.length < 3) {
                 setError("Username is too short!");
-            } else {
-                setError("");
-                alert(`Account created for ${values.username}!`);
+                return;
             }
+
+            const usersString = localStorage.getItem("users") || "[]";
+            const users = JSON.parse(usersString);
+
+            const isEmailTaken = users.some((u: any) => u.email === values.email);
+            if (isEmailTaken) {
+                setError("This email is already registered!");
+                return;
+            }
+
+            const newUser = {
+                id: Date.now(),
+                username: values.username,
+                email: values.email,
+                password: values.password,
+                birthday: values.birthday
+            };
+
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+
+            setError("");
+            alert(`Account created for ${values.username}!`);
+            setIsLogin(true); 
         }
     };
 

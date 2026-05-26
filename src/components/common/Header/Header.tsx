@@ -1,8 +1,25 @@
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Header.module.css';
-import { Link } from 'react-router-dom';
 import logoImage from '../../../assets/Logo.png';
 
 function Header(): JSX.Element {
+    const [user, setUser] = useState<any>(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("currentUser");
+        if (loggedInUser) {
+            setUser(JSON.parse(loggedInUser)); 
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("currentUser"); 
+        setUser(null); 
+        navigate("/login");
+    };
+
     return(
         <header className={styles.header}>
             <div className={styles.headerLeft}>
@@ -20,8 +37,20 @@ function Header(): JSX.Element {
 
             <div className={styles.headerRight}>
                 <Link to="/cart" className={styles.cartLink}>Košík</Link>
-                <Link to="/login" className={styles.btnDark}>Sign in</Link>
-                <Link to="/register" className={styles.btnDark}>Register</Link>
+                
+                {user ? (
+                    <>
+                        <span style={{ marginRight: '15px', fontWeight: 'bold' }}>
+                            Hi, {user.username}!
+                        </span>
+                        <button className={styles.btnDark} onClick={handleLogout}>Log out</button>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/login" className={styles.btnDark}>Sign in</Link>
+                        <Link to="/register" className={styles.btnDark}>Register</Link>
+                    </>
+                )}
             </div>
         </header>
     );
