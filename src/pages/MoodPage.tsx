@@ -3,6 +3,8 @@ import "./MoodPage.css";
 import greenTeaImg from "../assets/moodpage/greentes.jpg";
 import Matcha from "../assets/moodpage/matcha iced latte 🍵🧊.jpg";
 import GinkoImg from "../assets/moodpage/Ginkgo Bilobaart.jpg";
+import Chamomile from "../assets/moodpage/Chamomileart.jpg";
+
 
 type Tea = {
     name: string;
@@ -33,7 +35,7 @@ const moods: Mood[] = [
         id: 2, icon: "🌙", title: "Unwind",
         subtitle: "Gentle, calming herbs to ease the evening.",
         teas: [
-            { name: "Chamomile", description: "Floral and soothing", benefit: "Calms the mind before sleep", image: "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=300" },
+            { name: "Chamomile", description: "Floral and soothing", benefit: "Calms the mind before sleep", image: Chamomile },
             { name: "Lavender", description: "Soft and fragrant", benefit: "Reduces stress and anxiety", image: "https://images.unsplash.com/photo-1611073615830-9e1ffd6e1b11?w=300" },
             { name: "Valerian Root", description: "Earthy and deep", benefit: "Promotes deep relaxation", image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=300" },
         ],
