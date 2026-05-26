@@ -1,16 +1,17 @@
 import { useState } from "react";
-import "./Form.css"
+import "./Form.css";
 
 interface FormInputProps {
     label: string;
     errorMessage?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    id?: string;
+    id?: number;           // ← changed string to number
     name?: string;
     type?: string;
     placeholder?: string;
     pattern?: string;
     required?: boolean;
+    value?: string;        // ← added missing value prop
 }
 
 const FormInput = ({ label, errorMessage, onChange, id, ...inputProps }: FormInputProps) => {
@@ -24,7 +25,8 @@ const FormInput = ({ label, errorMessage, onChange, id, ...inputProps }: FormInp
                 onChange={onChange}
                 onBlur={() => setFocused(true)}
                 onFocus={() =>
-                    inputProps.name === "confirmPassword" && setFocused(true)}
+                    inputProps.name === "confirmPassword" && setFocused(true)
+                }
                 data-focused={focused.toString()}
             />
             <span>{errorMessage}</span>
