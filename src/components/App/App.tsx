@@ -18,7 +18,6 @@ type SignInValues = {
 };
 
 function App() {
-    // ✅ ALL useState hooks inside App
     const [isLogin, setIsLogin] = useState(false);
     const [values, setValues] = useState<FormValues>({
         username: "",
@@ -31,6 +30,7 @@ function App() {
         email: "",
         password: "",
     });
+    const [error, setError] = useState("");  // ✅ move it here
 
     const registerInputs = [
         {
@@ -105,6 +105,27 @@ function App() {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
+
+        if (isLogin) {
+            // Fake validation — replace with real API call later
+            if (signInValues.email === "" || signInValues.password === "") {
+                setError("Please fill in all fields.");
+            } else if (signInValues.password.length < 8) {
+                setError("Wrong password!");
+            } else {
+                setError("");
+                alert(`Welcome back ${signInValues.email}!`);
+            }
+        } else {
+            if (values.password !== values.confirmPassword) {
+                setError("Passwords don't match!");
+            } else if (values.username.length < 3) {
+                setError("Username is too short!");
+            } else {
+                setError("");
+                alert(`Account created for ${values.username}!`);
+            }
+        }
     };
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -123,6 +144,7 @@ function App() {
 
             <form onSubmit={handleSubmit}>
                 <h1>{isLogin ? "Sign In" : "Register"}</h1>
+                {error && <p className="form-error">{error}</p>}
 
                 {isLogin
                     ? signInInputs.map((input) => (
@@ -158,14 +180,11 @@ function App() {
                 />
 
                 <p className="signin-text">
-                    ...
-                </p>
-                <p className="signin-text">
                     {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
                     <button
                         type="button"
                         className="signin-btn"
-                        onClick={() => setIsLogin(!isLogin)}
+                        onClick={() => { setIsLogin(!isLogin); setError(""); }}
                     >
                         {isLogin ? "Register" : "Sign In"}
                     </button>

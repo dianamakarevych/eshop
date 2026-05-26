@@ -29,7 +29,7 @@ const FormInput = ({ label, errorMessage, onChange, id, ...inputProps }: FormInp
                 }
                 data-focused={focused.toString()}
             />
-            <span>{errorMessage}</span>
+            <span className="error-message">{errorMessage}</span>
         </div>
     );
 };

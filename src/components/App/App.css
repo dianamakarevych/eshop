@@ -87,4 +87,15 @@ button {
   border-radius: 8px;
   transition: background-color 0.2s;
   z-index: 999;
+
+  .form-error {
+    color: red;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: rgba(255, 0, 0, 0.1);
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid red;
+  }
 }
