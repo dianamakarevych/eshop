@@ -1,0 +1,81 @@
+.header {
+    display: flex;
+    justify-self: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.headerLeft{
+    flex: 1;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.logoName {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.headerNav {
+    flex: 1;
+    display: flex;
+    gap: 30px;
+}
+
+.headerNav a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: underline;
+    color: #333;
+    font-size: 16px;
+}
+
+.headerNav a:hover {
+    background-color: #e1dbdb;
+    border-radius: 5px;
+    color: black;
+}
+
+.cartLink {
+    flex: 1;
+    text-decoration: none;
+    color: #333;
+    margin-right: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.cartLink:hover {
+    background-color: #e1dbdb;
+    border-radius: 5px;
+    color: black;
+}
+
+.btnDark {
+    flex: 1;
+    background-color: #4a4a4a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btnDark:hover {
+    background-color: #333;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}

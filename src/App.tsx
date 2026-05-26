@@ -1,23 +1,16 @@
-import "./App.css";
-import { BrowserRouter, Link } from "react-router-dom";
-import AppRoutes from "./routes/AppRouter";
+import Header from "./components/common/Header/Header";
 import Footer from "./components/common/footer/Footer";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
-    <BrowserRouter>
-      <header>
-        <h1>Eshop</h1>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/profile">Profile</Link>
-        </nav>
-      </header>
-      <AppRoutes />
-
+    <div className="App">
+      <Header />
+      <main className="mainContent">
+        <AppRoutes />
+      </main>
       <Footer />
-    </BrowserRouter>
+    </div>
   );
 }
 
