@@ -27,6 +27,10 @@ input:invalid[focused="true"]~span {
     border: 1px solid red;
 }
 
-input:invalid[focused="true"]~span {
+input:invalid[data-focused="true"]~span {
     display: block;
+}
+
+input:invalid[data-focused="true"] {
+    border: 1px solid red;
 }

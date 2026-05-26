@@ -3,7 +3,7 @@ import Contacts from "../components/common/Contacts";
 import HomePage from "../pages/HomePage";
 import ProfilePage from "../pages/ProfilePage";
 
-function AppRoutes() {
+function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -13,4 +13,4 @@ function AppRoutes() {
   );
 }
 
-export default AppRoutes;
+export default AppRouter;

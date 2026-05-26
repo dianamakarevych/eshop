@@ -1,58 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  height: 100vh;
+  width: 100%;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 
 .app {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(rgba(255, 255, 255, 0.7),
-      rgba(255, 255, 255, 0.3)),
-    url("/tea.jpg");
+  background: linear-gradient(rgba(255, 255, 255, 0.349),
+      rgba(255, 255, 255, 0.151)),
+    url("/src/assets/Free\ \ Chinese\,\ Style\,\ Tea\ Background\ Images\,\ Chinese\ Tea\ Culture\ Poster\ Background\ Photo\ Background\ PNG\ and\ Vectors.jpg");
+  /* ← fixed path */
   background-size: cover;
   background-position: center;
 }
@@ -81,4 +46,56 @@ button {
   cursor: pointer;
   margin-top: 15px;
   margin-bottom: 30px;
+}
+
+.signin-text {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 14px;
+}
+
+.signin-btn {
+  width: auto;
+  /* override the full-width button style */
+  height: auto;
+  padding: 0;
+  background: none;
+  color: rgb(43, 46, 226);
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  text-decoration: underline;
+}
+
+.signin-btn:hover {
+  color: rgb(28, 29, 100);
+}
+
+.home-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+  z-index: 999;
+
+  .form-error {
+    color: red;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: rgba(255, 0, 0, 0.1);
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid red;
+  }
 }
