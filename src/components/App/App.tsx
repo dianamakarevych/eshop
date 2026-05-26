@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import FormInput from "../../pages/FormInput";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 
 type FormValues = {
     username: string;
@@ -142,6 +144,22 @@ function App() {
 
                 <button type="submit">{isLogin ? "Sign In" : "Submit"}</button>
 
+                <div className="divider">
+                    <span>or</span>
+                </div>
+
+                <GoogleLogin
+                    onSuccess={(credentialResponse) => {
+                        const decoded: any = jwtDecode(credentialResponse.credential!);
+                        console.log("Google user:", decoded);
+                        alert(`Welcome ${decoded.name}!`);
+                    }}
+                    onError={() => alert("Google Login Failed")}
+                />
+
+                <p className="signin-text">
+                    ...
+                </p>
                 <p className="signin-text">
                     {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
                     <button
