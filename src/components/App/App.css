@@ -57,7 +57,6 @@ button {
 
 .signin-btn {
   width: auto;
-  /* override the full-width button style */
   height: auto;
   padding: 0;
   background: none;
