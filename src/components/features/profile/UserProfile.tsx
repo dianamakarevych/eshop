@@ -115,12 +115,10 @@ function UserProfile() {
     }));
   };
 
-  // НОВАЯ ФУНКЦИЯ ДЛЯ ЗАГРУЗКИ АВАТАРКИ
   const handleImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]; // Берем первый выбранный файл
+    const file = event.target.files?.[0]; 
     
     if (file) {
-      // Защита: проверяем, чтобы файл был не больше 2 Мегабайт
       if (file.size > 2 * 1024 * 1024) {
         alert("Файл слишком большой! Пожалуйста, выберите картинку размером до 2 МБ.");
         return;
@@ -128,15 +126,13 @@ function UserProfile() {
 
       const reader = new FileReader();
       
-      // Когда файл прочитан, сохраняем его текстовую версию (Base64) в форму
       reader.onloadend = () => {
         setEditForm((currentForm) => ({
           ...currentForm,
-          avatarUrl: reader.result as string, // Это текстовая строка с картинкой
+          avatarUrl: reader.result as string, 
         }));
       };
       
-      // Даем команду прочитать файл
       reader.readAsDataURL(file);
     }
   };
@@ -183,10 +179,10 @@ function UserProfile() {
                 <input
                   id="avatarUpload"
                   type="file"
-                  accept="image/png, image/jpeg, image/jpg" // Разрешаем только картинки
+                  accept="image/png, image/jpeg, image/jpg" 
                   onChange={handleImageUpload}
                   className="edit-input"
-                  style={{ padding: "5px 0", border: "none" }} // Убираем рамку для красивого вида
+                  style={{ padding: "5px 0", border: "none" }} 
                 />
               </div>
 

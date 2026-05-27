@@ -32,7 +32,7 @@ function Register() {
         email: "",
         password: "",
     });
-    const [error, setError] = useState("");  // ✅ move it here
+    const [error, setError] = useState(""); 
 
     const registerInputs = [
         {
@@ -124,7 +124,6 @@ function Register() {
             if (foundUser) {
                 localStorage.setItem("currentUser", JSON.stringify(foundUser));
                 setError("");
-                alert(`Welcome, ${foundUser.username}!`);
                 window.location.href = "/";
             } else {
                 setError("Invalid email or password!");
@@ -162,7 +161,6 @@ function Register() {
             localStorage.setItem("users", JSON.stringify(users));
 
             setError("");
-            alert(`Account created for ${values.username}!`);
             setIsLogin(true); 
         }
     };
@@ -210,7 +208,6 @@ function Register() {
                     onSuccess={(credentialResponse) => {
                         const decoded: any = jwtDecode(credentialResponse.credential!);
                         console.log("Google user:", decoded);
-                        alert(`Welcome ${decoded.name}!`);
                     }}
                     onError={() => alert("Google Login Failed")}
                 />

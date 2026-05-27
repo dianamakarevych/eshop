@@ -15,7 +15,6 @@ function Header(): JSX.Element {
     : "U";
 
     useEffect(() => {
-        // 1. Выносим логику чтения из localStorage в отдельную функцию
         const loadUser = () => {
             const loggedInUser = localStorage.getItem("currentUser");
             if (loggedInUser) {
@@ -25,14 +24,10 @@ function Header(): JSX.Element {
             }
         };
 
-        // 2. Вызываем эту функцию при первой загрузке шапки (как было раньше)
         loadUser();
 
-        // 3. Подключаемся к нашей "рации" и слушаем сигнал "userUpdated".
-        // Как только сигнал поступит, шапка снова запустит loadUser() и обновит аватарку и имя!
         window.addEventListener("userUpdated", loadUser);
 
-        // 4. Правило хорошего тона: отключаем "рацию", если пользователь ушел с сайта
         return () => {
             window.removeEventListener("userUpdated", loadUser);
         };
