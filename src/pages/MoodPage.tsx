@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./MoodPage.css";
+import { useNavigate, useLocation } from "react-router-dom";
 import greenTeaImg from "../assets/moodpage/greentes.jpg";
 import Matcha from "../assets/moodpage/matcha iced latte 🍵🧊.jpg";
 import GinkoImg from "../assets/moodpage/Ginkgo Bilobaart.jpg";
@@ -14,7 +15,7 @@ import WhitePeony from "../assets/moodpage/White Peonyart.jpg";
 import Oolong from "../assets/moodpage/Oolongart.jpg";
 import Peppermint from "../assets/moodpage/permintartt.jpg";
 import Hibiscus from "../assets/moodpage/Hibiscus tea vector_tea illustration.jpg";
-import LemonVerbena from "../assets/moodpage/Lavenderart.jpg";
+import LemonVerbena from "../assets/moodpage/lemon verbena tea transparent background lemon verbena tea chinese drinks transparent ba.jpg";
 import CeremonialMatcha from "../assets/moodpage/Ceremonial Matchaart.jpg";
 import Gyokuro from "../assets/moodpage/Gyokuroart.jpg";
 import RoseTea from "../assets/moodpage/Rose Teaart'.jpg";
@@ -96,11 +97,24 @@ const moods: Mood[] = [
 
 const MoodPage = () => {
     const [selectedMood, setSelectedMood] = useState<Mood | null>(null);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const slugify = (name: string) =>
+        name.toLowerCase().replace(/\s/g, "-");
+
+    useEffect(() => {
+        const state = location.state as { selectedMood?: Mood } | null;
+        if (state?.selectedMood) {
+            setSelectedMood(state.selectedMood);
+        }
+    }, []);
 
     return (
+
         <div className="mood-page">
 
             {!selectedMood ? (
+
                 <div className="mood-intro">
                     <p className="mood-number">01</p>
                     <h1 className="mood-title">Find your <em>mood.</em></h1>
@@ -131,7 +145,11 @@ const MoodPage = () => {
                     <p className="mood-subtitle">{selectedMood.subtitle}</p>
                     <div className="tea-grid">
                         {selectedMood.teas.map((tea, index) => (
-                            <div key={index} className="tea-card">
+                            <div key={index} className="tea-card" onClick={() =>
+                                navigate(`/history/${slugify(tea.name)}`, {
+                                    state: { selectedMood, tea, teaImage: tea.image }
+                                })
+                            }>
                                 <img src={tea.image} alt={tea.name} className="tea-image" />
                                 <h2>{tea.name}</h2>
                                 <p className="tea-description">{tea.description}</p>
@@ -140,8 +158,9 @@ const MoodPage = () => {
                         ))}
                     </div>
                 </div>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 };
 
