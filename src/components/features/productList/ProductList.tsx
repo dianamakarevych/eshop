@@ -3,10 +3,25 @@ import { ApiService, type Product } from "../../../utils/ApiService";
 import ProductCard from "../productCard/ProductCard";
 import "./ProductList.css";
 
-const ProductList: React.FC = () => {
+type ProductListProps = {
+  searchTerm: string;
+  selectedCategory: string;
+  maxPrice: string;
+};
+
+const ProductList: React.FC<ProductListProps> = ({
+  searchTerm,
+  selectedCategory,
+  maxPrice,
+}) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+  const normalizedSelectedCategory = selectedCategory.trim().toLowerCase();
+  const maxPriceValue = Number(maxPrice);
+  const hasMaxPrice =
+    maxPrice.trim() !== "" && !Number.isNaN(maxPriceValue);
 
   useEffect(() => {
     ApiService.getProducts()
@@ -37,15 +52,32 @@ const ProductList: React.FC = () => {
     );
   }
 
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch =
+      !normalizedSearchTerm ||
+      product.title.toLowerCase().includes(normalizedSearchTerm) ||
+      product.category.toLowerCase().includes(normalizedSearchTerm);
+    const matchesCategory =
+      !normalizedSelectedCategory ||
+      product.category.toLowerCase() === normalizedSelectedCategory;
+    const matchesPrice = !hasMaxPrice || product.price <= maxPriceValue;
+
+    return matchesSearch && matchesCategory && matchesPrice;
+  });
+
   return (
     <>
       {products.length === 0 ? (
         <div className="product-list__status">
           <p>No products were found in the API.</p>
         </div>
+      ) : filteredProducts.length === 0 ? (
+        <div className="product-list__status">
+          <p>No products match your search.</p>
+        </div>
       ) : (
         <div className="product-list">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

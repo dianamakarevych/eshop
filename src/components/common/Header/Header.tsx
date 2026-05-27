@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logoImage from "../../../assets/Logo.png";
+import SeacrhBar from "../../features/searchBar/SearchBar";
 import "./Header.css";
 
 type CurrentUser = {
@@ -44,18 +45,21 @@ function Header(): JSX.Element {
       </div>
 
       <nav className="headerNav">
-        <Link to="/">Products</Link>
+        <Link to="/">Home</Link>
+        <Link to="/products">Products</Link>
         <Link to="/about">About</Link>
         <Link to="/contacts">Contacts</Link>
       </nav>
 
       <div className="headerRight">
         <Link to="/cart" className="cartLink">
-          Kosik
+          Cart
         </Link>
         {currentUser ? (
           <>
-            <span className="headerUser">{currentUser.username}</span>
+            <Link to="/profile" className="headerUser">
+              {currentUser.username}
+            </Link>
             <button className="btnDark" type="button" onClick={handleLogout}>
               Log out
             </button>
@@ -71,6 +75,7 @@ function Header(): JSX.Element {
           </>
         )}
       </div>
+      <div></div>
     </header>
   );
 }

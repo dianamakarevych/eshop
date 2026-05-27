@@ -42,6 +42,12 @@ const loginInitialValues: LoginValues = {
   password: "",
 };
 
+const PASSWORD_PATTERN =
+  "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[^A-Za-z0-9\\s])\\S{8,20}$";
+const PASSWORD_ERROR_MESSAGE =
+  "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character.";
+const passwordRegex = new RegExp(PASSWORD_PATTERN);
+
 function AuthPage({ mode }: AuthPageProps) {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(mode === "login");
@@ -92,11 +98,9 @@ function AuthPage({ mode }: AuthPageProps) {
       name: "password",
       type: "password",
       placeholder: "Password",
-      errorMessage:
-        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character.",
+      errorMessage: PASSWORD_ERROR_MESSAGE,
       label: "Password",
-      pattern:
-        "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,20}$",
+      pattern: PASSWORD_PATTERN,
       required: true,
     },
     {
@@ -161,6 +165,11 @@ function AuthPage({ mode }: AuthPageProps) {
 
     if (registerValues.password !== registerValues.confirmPassword) {
       setError("Passwords do not match.");
+      return;
+    }
+
+    if (!passwordRegex.test(registerValues.password)) {
+      setError(PASSWORD_ERROR_MESSAGE);
       return;
     }
 

@@ -22,6 +22,24 @@ const mockUser: UserInfo = {
   avatarUrl: "",
 };
 
+function getInitialUser(): UserInfo {
+  const saved = localStorage.getItem("eshop-current-user");
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      return {
+        username: parsed.username || mockUser.username,
+        email: parsed.email || mockUser.email,
+        phone: mockUser.phone,
+        avatarUrl: "",
+      };
+    } catch {
+      return mockUser;
+    }
+  }
+  return mockUser;
+}
+
 const mockOrders: OrderHistory[] = [
   {
     id: "OBJ-2026-001",
@@ -44,9 +62,10 @@ const orderStatusLabels: Record<OrderHistory["status"], string> = {
 };
 
 function UserProfile() {
-  const [user, setUser] = useState<UserInfo>(mockUser);
+  const initialUser = getInitialUser();
+  const [user, setUser] = useState<UserInfo>(initialUser);
   const [isEditing, setIsEditing] = useState(false);
-  const [editForm, setEditForm] = useState<UserInfo>(mockUser);
+  const [editForm, setEditForm] = useState<UserInfo>(initialUser);
 
   const initials = user.username
     ? user.username
