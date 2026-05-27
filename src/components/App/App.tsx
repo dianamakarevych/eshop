@@ -139,7 +139,6 @@ function App() {
     return (
         <div className="app">
 
-            <a href="/" className="home-link">← Go to main page</a>
 
 
             <form onSubmit={handleSubmit}>

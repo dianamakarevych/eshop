@@ -4,6 +4,22 @@ import greenTeaImg from "../assets/moodpage/greentes.jpg";
 import Matcha from "../assets/moodpage/matcha iced latte 🍵🧊.jpg";
 import GinkoImg from "../assets/moodpage/Ginkgo Bilobaart.jpg";
 import Chamomile from "../assets/moodpage/Chamomileart.jpg";
+import Lavender from "../assets/moodpage/Lavenderart.jpg";
+import ValerianRoot from "../assets/moodpage/Valerian Rootart.jpg";
+import BlackTea from "../assets/moodpage/Black Teaart.jpg";
+import YerbaMate from "../assets/moodpage/Yerba Mateart.jpg";
+import GingerTea from "../assets/moodpage/Ginger Teaart.jpg";
+import Puerh from "../assets/moodpage/Pu-erhart.jpg";
+import WhitePeony from "../assets/moodpage/White Peonyart.jpg";
+import Oolong from "../assets/moodpage/Oolongart.jpg";
+import Peppermint from "../assets/moodpage/permintartt.jpg";
+import Hibiscus from "../assets/moodpage/Hibiscus tea vector_tea illustration.jpg";
+import LemonVerbena from "../assets/moodpage/Lavenderart.jpg";
+import CeremonialMatcha from "../assets/moodpage/Ceremonial Matchaart.jpg";
+import Gyokuro from "../assets/moodpage/Gyokuroart.jpg";
+import RoseTea from "../assets/moodpage/Rose Teaart'.jpg";
+
+
 
 
 type Tea = {
@@ -36,44 +52,44 @@ const moods: Mood[] = [
         subtitle: "Gentle, calming herbs to ease the evening.",
         teas: [
             { name: "Chamomile", description: "Floral and soothing", benefit: "Calms the mind before sleep", image: Chamomile },
-            { name: "Lavender", description: "Soft and fragrant", benefit: "Reduces stress and anxiety", image: "https://images.unsplash.com/photo-1611073615830-9e1ffd6e1b11?w=300" },
-            { name: "Valerian Root", description: "Earthy and deep", benefit: "Promotes deep relaxation", image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=300" },
+            { name: "Lavender", description: "Soft and fragrant", benefit: "Reduces stress and anxiety", image: Lavender },
+            { name: "Valerian Root", description: "Earthy and deep", benefit: "Promotes deep relaxation", image: ValerianRoot },
         ],
     },
     {
         id: 3, icon: "⚡", title: "Energise",
         subtitle: "Bold, robust teas to kickstart your morning.",
         teas: [
-            { name: "Black Tea", description: "Bold and strong", benefit: "High caffeine for a morning boost", image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=300" },
-            { name: "Yerba Mate", description: "Smoky and rich", benefit: "Long-lasting energy without jitters", image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=300" },
-            { name: "Ginger Tea", description: "Spicy and warming", benefit: "Stimulates circulation and energy", image: "https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=300" },
+            { name: "Black Tea", description: "Bold and strong", benefit: "High caffeine for a morning boost", image: BlackTea },
+            { name: "Yerba Mate", description: "Smoky and rich", benefit: "Long-lasting energy without jitters", image: YerbaMate },
+            { name: "Ginger Tea", description: "Spicy and warming", benefit: "Stimulates circulation and energy", image: GingerTea },
         ],
     },
     {
         id: 4, icon: "☁️", title: "Explore",
         subtitle: "Complex, rare finds for the curious palate.",
         teas: [
-            { name: "Pu-erh", description: "Deep and aged", benefit: "Unique fermented taste, aids digestion", image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300" },
-            { name: "White Peony", description: "Delicate and rare", benefit: "Light floral notes, high antioxidants", image: "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=300" },
-            { name: "Oolong", description: "Balanced and complex", benefit: "Between green and black, unique flavor", image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=300" },
+            { name: "Pu-erh", description: "Deep and aged", benefit: "Unique fermented taste, aids digestion", image: Puerh },
+            { name: "White Peony", description: "Delicate and rare", benefit: "Light floral notes, high antioxidants", image: WhitePeony },
+            { name: "Oolong", description: "Balanced and complex", benefit: "Between green and black, unique flavor", image: Oolong },
         ],
     },
     {
         id: 5, icon: "🌸", title: "Refresh",
         subtitle: "Cool and vibrant teas to reset your day.",
         teas: [
-            { name: "Peppermint", description: "Cool and crisp", benefit: "Refreshes the mind and aids digestion", image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=300" },
-            { name: "Hibiscus", description: "Tart and fruity", benefit: "Rich in vitamin C, cooling effect", image: "https://images.unsplash.com/photo-1611073615830-9e1ffd6e1b11?w=300" },
-            { name: "Lemon Verbena", description: "Citrusy and bright", benefit: "Uplifting and refreshing", image: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=300" },
+            { name: "Peppermint", description: "Cool and crisp", benefit: "Refreshes the mind and aids digestion", image: Peppermint },
+            { name: "Hibiscus", description: "Tart and fruity", benefit: "Rich in vitamin C, cooling effect", image: Hibiscus },
+            { name: "Lemon Verbena", description: "Citrusy and bright", benefit: "Uplifting and refreshing", image: LemonVerbena },
         ],
     },
     {
         id: 6, icon: "🕯️", title: "Ritual",
         subtitle: "Slow down and savour every sip.",
         teas: [
-            { name: "Ceremonial Matcha", description: "Vibrant and umami", benefit: "Mindful preparation, zen-like focus", image: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=300" },
-            { name: "Gyokuro", description: "Sweet and shaded", benefit: "Premium Japanese green, meditative", image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300" },
-            { name: "Rose Tea", description: "Romantic and soft", benefit: "Perfect for a calming daily ritual", image: "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=300" },
+            { name: "Ceremonial Matcha", description: "Vibrant and umami", benefit: "Mindful preparation, zen-like focus", image: CeremonialMatcha },
+            { name: "Gyokuro", description: "Sweet and shaded", benefit: "Premium Japanese green, meditative", image: Gyokuro },
+            { name: "Rose Tea", description: "Romantic and soft", benefit: "Perfect for a calming daily ritual", image: RoseTea },
         ],
     },
 ];
@@ -83,7 +99,6 @@ const MoodPage = () => {
 
     return (
         <div className="mood-page">
-            <a href="/" className="home-link">← Go to main page</a>
 
             {!selectedMood ? (
                 <div className="mood-intro">
