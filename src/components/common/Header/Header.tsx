@@ -6,18 +6,42 @@ import logoImage from '../../../assets/Logo.png';
 function Header(): JSX.Element {
     const [user, setUser] = useState<any>(null);
     const navigate = useNavigate();
+    const initials = (user && user.username)
+    ? user.username
+        .split(" ")
+        .map((namePart: string) => namePart[0])
+        .join("")
+        .toUpperCase()
+    : "U";
 
     useEffect(() => {
-        const loggedInUser = localStorage.getItem("currentUser");
-        if (loggedInUser) {
-            setUser(JSON.parse(loggedInUser)); 
-        }
+        // 1. Выносим логику чтения из localStorage в отдельную функцию
+        const loadUser = () => {
+            const loggedInUser = localStorage.getItem("currentUser");
+            if (loggedInUser) {
+                setUser(JSON.parse(loggedInUser)); 
+            } else {
+                setUser(null);
+            }
+        };
+
+        // 2. Вызываем эту функцию при первой загрузке шапки (как было раньше)
+        loadUser();
+
+        // 3. Подключаемся к нашей "рации" и слушаем сигнал "userUpdated".
+        // Как только сигнал поступит, шапка снова запустит loadUser() и обновит аватарку и имя!
+        window.addEventListener("userUpdated", loadUser);
+
+        // 4. Правило хорошего тона: отключаем "рацию", если пользователь ушел с сайта
+        return () => {
+            window.removeEventListener("userUpdated", loadUser);
+        };
     }, []);
 
     const handleLogout = () => {
         localStorage.removeItem("currentUser"); 
         setUser(null); 
-        navigate("/login");
+        navigate("/");
     };
 
     return(
@@ -36,13 +60,19 @@ function Header(): JSX.Element {
             </nav>
 
             <div className={styles.headerRight}>
-                <Link to="/cart" className={styles.cartLink}>Košík</Link>
-                
+                <Link to="/cart" className={styles.cartLink}>Cart</Link>
                 {user ? (
                     <>
-                        <span style={{ marginRight: '15px', fontWeight: 'bold' }}>
-                            Hi, {user.username}!
-                        </span>
+                        <Link to="profile" style={{textDecoration: "none"}}>{user.avatarUrl ? (
+                            <img
+                                src={user.avatarUrl}
+                                alt={user.username}
+                                className={styles.avatar}
+                            />
+                            ) : (
+                            <div className={styles.avatarPlaceholder}>{initials}</div>
+                        )}</Link>
+                        <Link to="/profile" className={styles.btnProf}>{user.username}</Link>
                         <button className={styles.btnDark} onClick={handleLogout}>Log out</button>
                     </>
                 ) : (

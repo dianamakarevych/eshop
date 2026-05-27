@@ -1,6 +1,6 @@
 .header {
     display: flex;
-    justify-self: space-between;
+    justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
     background-color: #f8f9fa;
@@ -36,6 +36,14 @@
     transform: translateX(-50%);
 }
 
+.headerRight {
+    flex: 1;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .headerNav a {
     display: block;
     padding: 10px 20px;
@@ -51,11 +59,10 @@
 }
 
 .cartLink {
-    flex: 1;
     text-decoration: none;
     color: #333;
-    margin-right: 15px;
     font-weight: bold;
+    font-size: 22px;
     padding: 10px 20px;
 }
 
@@ -66,7 +73,6 @@
 }
 
 .btnDark {
-    flex: 1;
     background-color: #4a4a4a;
     color: white;
     border: none;
@@ -76,9 +82,40 @@
     cursor: pointer;
     font-size: 14px;
 }
+.btnProf {
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.btnProf:hover {
+    color:aquamarine;
+}
 
 .btnDark:hover {
     background-color: #333;
+}
+
+.avatarPlaceholder  {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+}
+
+.avatar {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #000000;
 }
 
 .logo img {
