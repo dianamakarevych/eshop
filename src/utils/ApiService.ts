@@ -1,4 +1,4 @@
-const BASE_URL = "https://fakestoreapi.com";
+const BASE_URL = "http://localhost:3000";
 
 export interface Product {
   id: number;
@@ -6,11 +6,20 @@ export interface Product {
   price: number;
   description: string;
   category: string;
+  mood?: string;
   image: string;
   rating: {
     rate: number;
     count: number;
   };
+}
+
+export interface Mood {
+  id: number;
+  icon: string;
+  title: string;
+  subtitle: string;
+  teas: { name: string; description: string; benefit: string; image: string; }[];
 }
 
 async function fetchProducts(): Promise<Product[]> {
@@ -38,14 +47,20 @@ export const ApiService = {
     return response.json();
   },
 
-  getCategories: async (): Promise<string[]> => {
-    const response = await fetch(`${BASE_URL}/products/categories`);
-
+  getMoods: async (): Promise<Mood[]> => {
+    const response = await fetch(`${BASE_URL}/moods`);
     if (!response.ok) {
-      throw new Error("Product categories could not be loaded.");
+      throw new Error("Moods could not be loaded.");
     }
-
     return response.json();
+  },
+
+  getCategories: async (): Promise<string[]> => {
+    const products = await fetchProducts();
+    
+    const uniqueCategories = Array.from(new Set(products.map(p => p.category)));
+    
+    return uniqueCategories;
   },
 
   getProductsByCategory: async (category: string): Promise<Product[]> => {

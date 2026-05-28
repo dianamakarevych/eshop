@@ -5,6 +5,8 @@ import "./FilterPanel.css";
 type FilterPanelProps = {
   selectedCategory: string;
   onCategoryChange: (category: string) => void;
+  selectedMood: string;
+  onMoodChange: (m: string) => void;
   maxPrice: string;
   onMaxPriceChange: (price: string) => void;
   onResetFilters: () => void;
@@ -13,6 +15,8 @@ type FilterPanelProps = {
 const FilterPanel = ({
   selectedCategory,
   onCategoryChange,
+  selectedMood,     
+  onMoodChange,     
   maxPrice,
   onMaxPriceChange,
   onResetFilters,
@@ -27,6 +31,24 @@ const FilterPanel = ({
 
   return (
     <section className="filter-panel" aria-label="Product filters">
+      
+      <div className="filter-field">
+        <label htmlFor="mood-filter">Mood</label>
+        <select 
+          id="mood-filter" 
+          value={selectedMood} 
+          onChange={(e) => onMoodChange(e.target.value)}
+        >
+          <option value="">All moods</option>
+          <option value="Focus">Focus 🌿</option>
+          <option value="Unwind">Unwind 🌙</option>
+          <option value="Energise">Energise ⚡</option>
+          <option value="Explore">Explore ☁️</option>
+          <option value="Refresh">Refresh 🌸</option>
+          <option value="Ritual">Ritual 🕯️</option>
+        </select>
+      </div>
+
       <div className="filter-field">
         <label htmlFor="category-filter">Category</label>
         <select

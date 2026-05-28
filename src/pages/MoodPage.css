@@ -1,0 +1,154 @@
+.mood-page {
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    padding: 40px 30px;
+    font-family: Georgia, serif;
+}
+
+.mood-number {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.mood-title {
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.mood-title em {
+    font-style: italic;
+}
+
+.mood-subtitle {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 300px;
+}
+
+/* Mood grid */
+.mood-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 20px;
+}
+
+.mood-card {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.mood-card:hover {
+    opacity: 0.7;
+}
+
+.mood-icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.mood-card h2 {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 6px;
+}
+
+.mood-card p {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.5;
+}
+
+/* Tea results screen */
+.tea-results {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.mood-icon-large {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.tea-results h1 {
+    font-size: 36px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+.back-btn:hover {
+    color: #fff;
+}
+
+.tea-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.tea-card {
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 20px;
+    transition: border-color 0.2s;
+}
+
+.tea-card:hover {
+    border-color: #555;
+}
+
+.tea-card h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 6px;
+}
+
+.tea-description {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.tea-benefit {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.5;
+}
+
+.home-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 40px;
+    font-family: sans-serif;
+}
+
+.home-link:hover {
+    color: #fff;
+}
+
+.tea-image {
+    width: 100%;
+    height: 200px;
+    /* ← limit the height */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}

@@ -1,4 +1,3 @@
-/* Безопасный контейнер для всей страницы регистрации */
 .register-wrapper {
   display: flex;
   align-items: center;
@@ -11,7 +10,6 @@
   background-position: center;
 }
 
-/* Запираем форму, заголовки и кнопки внутри регистрационной обертки */
 .register-wrapper form {
   background-color: white;
   padding: 40px 60px;
@@ -35,11 +33,12 @@
   font-size: 18px;
   cursor: pointer;
   margin-top: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .register-wrapper .signin-text {
   text-align: center;
+  margin-top: 20px;
   margin-bottom: 20px;
   color: #555;
   font-size: 14px;
@@ -63,7 +62,6 @@
   color: rgb(28, 29, 100);
 }
 
-
 .form-error {
   color: red;
   font-size: 13px;
@@ -73,4 +71,17 @@
   padding: 8px;
   border-radius: 5px;
   border: 1px solid red;
+}
+
+.divider {
+  margin: 15px 0;
+  text-align: center;
+  color: #888;
+}
+
+.google-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
 }

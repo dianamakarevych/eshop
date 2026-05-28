@@ -7,21 +7,25 @@ type ProductListProps = {
   searchTerm: string;
   selectedCategory: string;
   maxPrice: string;
+  selectedMood: string; 
 };
 
 const ProductList: React.FC<ProductListProps> = ({
   searchTerm,
   selectedCategory,
   maxPrice,
+  selectedMood, 
 }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
   const normalizedSelectedCategory = selectedCategory.trim().toLowerCase();
+  const normalizedSelectedMood = selectedMood.trim().toLowerCase(); // <-- Нормализуем строку настроения
+  
   const maxPriceValue = Number(maxPrice);
-  const hasMaxPrice =
-    maxPrice.trim() !== "" && !Number.isNaN(maxPriceValue);
+  const hasMaxPrice = maxPrice.trim() !== "" && !Number.isNaN(maxPriceValue);
 
   useEffect(() => {
     ApiService.getProducts()
@@ -57,12 +61,18 @@ const ProductList: React.FC<ProductListProps> = ({
       !normalizedSearchTerm ||
       product.title.toLowerCase().includes(normalizedSearchTerm) ||
       product.category.toLowerCase().includes(normalizedSearchTerm);
+      
     const matchesCategory =
       !normalizedSelectedCategory ||
       product.category.toLowerCase() === normalizedSelectedCategory;
+      
     const matchesPrice = !hasMaxPrice || product.price <= maxPriceValue;
 
-    return matchesSearch && matchesCategory && matchesPrice;
+    const matchesMood =
+      !normalizedSelectedMood ||
+      product.mood?.toLowerCase() === normalizedSelectedMood;
+
+    return matchesSearch && matchesCategory && matchesPrice && matchesMood;
   });
 
   return (

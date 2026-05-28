@@ -9,10 +9,12 @@ function Products() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-
+  const [selectedMood, setSelectedMood] = useState("");
+  
   const resetFilters = () => {
     setSelectedCategory("");
     setMaxPrice("");
+    setSelectedMood("");
   };
 
   return (
@@ -29,6 +31,8 @@ function Products() {
           onCategoryChange={setSelectedCategory}
           maxPrice={maxPrice}
           onMaxPriceChange={setMaxPrice}
+          selectedMood={selectedMood}
+          onMoodChange={setSelectedMood}
           onResetFilters={resetFilters}
         />
       )}
@@ -36,6 +40,7 @@ function Products() {
         searchTerm={searchTerm}
         selectedCategory={selectedCategory}
         maxPrice={maxPrice}
+        selectedMood={selectedMood}
       />
     </div>
   );

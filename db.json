@@ -1,0 +1,239 @@
+{
+  "products": [
+    {
+      
+      "id": 1,
+      "title": "Green Tea",
+      "price": 12.00,
+      "category": "Green Tea",
+      "mood": "Focus",
+      "image": "/images/moodpage/greentes.jpg",
+      "description": "Light and fresh. Boosts concentration with gentle caffeine.",
+      "rating": {
+        "rate": 4.8,
+        "count": 150
+      }
+    },
+    {
+      "id": 2,
+      "title": "Matcha",
+      "price": 18.50,
+      "category": "Green Tea",
+      "mood": "Focus",
+      "image": "/images/moodpage/matcha iced latte 🍵🧊.jpg",
+      "description": "Rich and earthy. Sustained energy and mental clarity.",
+      "rating": {
+        "rate": 4.9,
+        "count": 320
+      }
+    },
+    {
+      "id": 3,
+      "title": "Ginkgo Biloba",
+      "price": 14.00,
+      "category": "Herbal",
+      "mood": "Focus",
+      "image": "/images/moodpage/Ginkgo Bilobaart.jpg",
+      "description": "Herbal and mild. Enhances memory and focus.",
+      "rating": {
+        "rate": 4.6,
+        "count": 85
+      }
+    },
+    {
+      "id": 4,
+      "title": "Chamomile",
+      "price": 10.50,
+      "category": "Herbal",
+      "mood": "Unwind",
+      "image": "/images/moodpage/Chamomileart.jpg",
+      "description": "Floral and soothing. Calms the mind before sleep.",
+      "rating": {
+        "rate": 4.7,
+        "count": 210
+      }
+    },
+    {
+      "id": 5,
+      "title": "Lavender",
+      "price": 11.00,
+      "category": "Herbal",
+      "mood": "Unwind",
+      "image": "/images/moodpage/Lavenderart.jpg",
+      "description": "Soft and fragrant. Reduces stress and anxiety.",
+      "rating": {
+        "rate": 4.8,
+        "count": 185
+      }
+    },
+    {
+      "id": 6,
+      "title": "Valerian Root",
+      "price": 13.00,
+      "category": "Herbal",
+      "mood": "Unwind",
+      "image": "/images/moodpage/Valerian Rootart.jpg",
+      "description": "Earthy and deep. Promotes deep relaxation.",
+      "rating": {
+        "rate": 4.5,
+        "count": 90
+      }
+    },
+    {
+      "id": 7,
+      "title": "Black Tea",
+      "price": 9.90,
+      "category": "Black Tea",
+      "mood": "Energise",
+      "image": "/images/moodpage/Black Teaart.jpg",
+      "description": "Bold and strong. High caffeine for a morning boost.",
+      "rating": {
+        "rate": 4.9,
+        "count": 450
+      }
+    },
+    {
+      "id": 8,
+      "title": "Yerba Mate",
+      "price": 15.00,
+      "category": "Herbal",
+      "mood": "Energise",
+      "image": "/images/moodpage/Yerba Mateart.jpg",
+      "description": "Smoky and rich. Long-lasting energy without jitters.",
+      "rating": {
+        "rate": 4.6,
+        "count": 130
+      }
+    },
+    {
+      "id": 9,
+      "title": "Ginger Tea",
+      "price": 12.50,
+      "category": "Herbal",
+      "mood": "Energise",
+      "image": "/images/moodpage/Ginger Teaart.jpg",
+      "description": "Spicy and warming. Stimulates circulation and energy.",
+      "rating": {
+        "rate": 4.7,
+        "count": 275
+      }
+    },
+    {
+      "id": 10,
+      "title": "Pu-erh",
+      "price": 25.00,
+      "category": "Pu-erh",
+      "mood": "Explore",
+      "image": "/images/moodpage/Pu-erhart.jpg",
+      "description": "Deep and aged. Unique fermented taste, aids digestion.",
+      "rating": {
+        "rate": 4.9,
+        "count": 310
+      }
+    },
+    {
+      "id": 11,
+      "title": "White Peony",
+      "price": 22.00,
+      "category": "White Tea",
+      "mood": "Explore",
+      "image": "/images/moodpage/White Peonyart.jpg",
+      "description": "Delicate and rare. Light floral notes, high antioxidants.",
+      "rating": {
+        "rate": 4.8,
+        "count": 145
+      }
+    },
+    {
+      "id": 12,
+      "title": "Oolong",
+      "price": 19.00,
+      "category": "Oolong",
+      "mood": "Explore",
+      "image": "/images/moodpage/Oolongart.jpg",
+      "description": "Balanced and complex. Between green and black, unique flavor.",
+      "rating": {
+        "rate": 4.7,
+        "count": 220
+      }
+    },
+    {
+      "id": 13,
+      "title": "Peppermint",
+      "price": 11.50,
+      "category": "Herbal",
+      "mood": "Refresh",
+      "image": "/images/moodpage/permintartt.jpg",
+      "description": "Cool and crisp. Refreshes the mind and aids digestion.",
+      "rating": {
+        "rate": 4.8,
+        "count": 400
+      }
+    },
+    {
+      "id": 14,
+      "title": "Hibiscus",
+      "price": 12.00,
+      "category": "Herbal",
+      "mood": "Refresh",
+      "image": "/images/moodpage/Hibiscus tea vector_tea illustration.jpg",
+      "description": "Tart and fruity. Rich in vitamin C, cooling effect.",
+      "rating": {
+        "rate": 4.7,
+        "count": 290
+      }
+    },
+    {
+      "id": 15,
+      "title": "Lemon Verbena",
+      "price": 13.50,
+      "category": "Herbal",
+      "mood": "Refresh",
+      "image": "/images/moodpage/lemon verbena tea transparent background lemon verbena tea chinese drinks transparent ba.jpg",
+      "description": "Citrusy and bright. Uplifting and refreshing.",
+      "rating": {
+        "rate": 4.6,
+        "count": 110
+      }
+    },
+    {
+      "id": 16,
+      "title": "Ceremonial Matcha",
+      "price": 35.00,
+      "category": "Green Tea",
+      "mood": "Ritual",
+      "image": "/images/moodpage/Ceremonial Matchaart.jpg",
+      "description": "Vibrant and umami. Mindful preparation, zen-like focus.",
+      "rating": {
+        "rate": 5.0,
+        "count": 550
+      }
+    },
+    {
+      "id": 17,
+      "title": "Gyokuro",
+      "price": 28.00,
+      "category": "Green Tea",
+      "mood": "Ritual",
+      "image": "/images/moodpage/Gyokuroart.jpg",
+      "description": "Sweet and shaded. Premium Japanese green, meditative.",
+      "rating": {
+        "rate": 4.9,
+        "count": 180
+      }
+    },
+    {
+      "id": 18,
+      "title": "Rose Tea",
+      "price": 16.00,
+      "category": "Herbal",
+      "mood": "Ritual",
+      "image": "/images/moodpage/Rose Teaart'.jpg",
+      "description": "Romantic and soft. Perfect for a calming daily ritual.",
+      "rating": {
+        "rate": 4.7,
+        "count": 260
+      }
+    }
+  ]
+}
