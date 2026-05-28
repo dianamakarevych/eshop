@@ -10,7 +10,7 @@
     z-index: 1000;
 }
 
-.headerLeft{
+.headerLeft {
     flex: 1;
 }
 
@@ -39,9 +39,9 @@
 .headerRight {
     flex: 1;
     display: flex;
-    gap: 15px;
     align-items: center;
     justify-content: flex-end;
+    gap: 15px;
 }
 
 .headerNav a {
@@ -73,15 +73,19 @@
 }
 
 .btnDark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: #4a4a4a;
     color: white;
     border: none;
-    text-decoration: none;
     border-radius: 4px;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 14px;
+    text-decoration: none;
 }
+
 .btnProf {
     text-decoration: none;
     margin-right: 15px;
@@ -90,23 +94,23 @@
 }
 
 .btnProf:hover {
-    color:aquamarine;
+    color: aquamarine;
 }
 
 .btnDark:hover {
     background-color: #333;
 }
 
-.avatarPlaceholder  {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #cccccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: #fff;
+.avatarPlaceholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
 }
 
 .avatar {
@@ -122,4 +126,9 @@
     height: 50px;
     width: auto;
     display: block;
+}
+
+.headerUser {
+    color: #333;
+    font-weight: 700;
 }

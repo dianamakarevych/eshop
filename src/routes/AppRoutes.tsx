@@ -1,4 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
+import HomePage from "../pages/Home/HomePage";
 import Products from '../pages/Products/Products';
 import About from '../pages/About/About';
 import Contacts from '../pages/Contacts/Contacts';
@@ -11,7 +12,8 @@ function AppRoutes(): JSX.Element {
   
   return (
     <Routes>
-      <Route path="/" element={<Products />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/products" element={<Products />} />
       <Route path="/about" element={<About />} />
       <Route path="/contacts" element={<Contacts />} />
       <Route path="/cart" element={<Cart />} />

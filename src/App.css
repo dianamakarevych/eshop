@@ -1,15 +1,3 @@
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
-}
-
-.mainContent {
-  flex: 1; 
-  display: flex;
-  flex-direction: column;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -22,4 +10,22 @@ html, body, #root {
   margin: 0;
   padding: 0;
   overflow-x: hidden; 
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainContent {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)),
+    url("./assets/tea-background.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 420px;
 }

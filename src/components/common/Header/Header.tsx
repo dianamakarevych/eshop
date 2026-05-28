@@ -6,13 +6,14 @@ import logoImage from '../../../assets/Logo.png';
 function Header(): JSX.Element {
     const [user, setUser] = useState<any>(null);
     const navigate = useNavigate();
+
     const initials = (user && user.username)
-    ? user.username
-        .split(" ")
-        .map((namePart: string) => namePart[0])
-        .join("")
-        .toUpperCase()
-    : "U";
+        ? user.username
+            .split(" ")
+            .map((namePart: string) => namePart[0])
+            .join("")
+            .toUpperCase()
+        : "U";
 
     useEffect(() => {
         const loadUser = () => {
@@ -27,9 +28,11 @@ function Header(): JSX.Element {
         loadUser();
 
         window.addEventListener("userUpdated", loadUser);
+        window.addEventListener("storage", loadUser);
 
         return () => {
             window.removeEventListener("userUpdated", loadUser);
+            window.removeEventListener("storage", loadUser);
         };
     }, []);
 
@@ -37,9 +40,10 @@ function Header(): JSX.Element {
         localStorage.removeItem("currentUser"); 
         setUser(null); 
         navigate("/");
+        window.dispatchEvent(new Event("userUpdated")); 
     };
 
-    return(
+    return (
         <header className={styles.header}>
             <div className={styles.headerLeft}>
                 <Link to="/" className={styles.logoLink}>
@@ -49,7 +53,7 @@ function Header(): JSX.Element {
             </div>
 
             <nav className={styles.headerNav}>
-                <Link to="/">Products</Link>
+                <Link to="/products">Products</Link>
                 <Link to="/about">About</Link>
                 <Link to="/contacts">Contacts</Link>
             </nav>
@@ -58,15 +62,17 @@ function Header(): JSX.Element {
                 <Link to="/cart" className={styles.cartLink}>Cart</Link>
                 {user ? (
                     <>
-                        <Link to="profile" style={{textDecoration: "none"}}>{user.avatarUrl ? (
-                            <img
-                                src={user.avatarUrl}
-                                alt={user.username}
-                                className={styles.avatar}
-                            />
+                        <Link to="/profile" style={{textDecoration: "none"}}>
+                            {user.avatarUrl ? (
+                                <img
+                                    src={user.avatarUrl}
+                                    alt={user.username}
+                                    className={styles.avatar}
+                                />
                             ) : (
-                            <div className={styles.avatarPlaceholder}>{initials}</div>
-                        )}</Link>
+                                <div className={styles.avatarPlaceholder}>{initials}</div>
+                            )}
+                        </Link>
                         <Link to="/profile" className={styles.btnProf}>{user.username}</Link>
                         <button className={styles.btnDark} onClick={handleLogout}>Log out</button>
                     </>

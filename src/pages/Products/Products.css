@@ -1,0 +1,12 @@
+.pageContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  width: 100%;
+}
+
+.pageContainer h1 {
+  margin: 0 0 1rem;
+  font-size: 1.75rem;
+  color: #222;
+}

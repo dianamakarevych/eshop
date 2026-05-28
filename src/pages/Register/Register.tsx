@@ -32,7 +32,7 @@ function Register() {
         email: "",
         password: "",
     });
-    const [error, setError] = useState(""); 
+    const [error, setError] = useState("");
 
     const registerInputs = [
         {
@@ -175,7 +175,6 @@ function Register() {
 
     return (
         <div className="register-wrapper">
-
             <form onSubmit={handleSubmit}>
                 <h1>{isLogin ? "Sign In" : "Register"}</h1>
                 {error && <p className="form-error">{error}</p>}
@@ -208,6 +207,7 @@ function Register() {
                     onSuccess={(credentialResponse) => {
                         const decoded: any = jwtDecode(credentialResponse.credential!);
                         console.log("Google user:", decoded);
+                        alert(`Welcome ${decoded.name}!`);
                     }}
                     onError={() => alert("Google Login Failed")}
                 />

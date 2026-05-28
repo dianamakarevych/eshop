@@ -120,7 +120,6 @@ function UserProfile() {
     
     if (file) {
       if (file.size > 2 * 1024 * 1024) {
-        alert("Файл слишком большой! Пожалуйста, выберите картинку размером до 2 МБ.");
         return;
       }
 

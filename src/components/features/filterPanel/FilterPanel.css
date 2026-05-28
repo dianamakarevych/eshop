@@ -1,0 +1,77 @@
+.filter-panel {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(170px, 220px) 96px;
+  align-items: end;
+  column-gap: 1.5rem;
+  row-gap: 1rem;
+  width: min(100% - 2rem, 720px);
+  margin: -0.75rem auto 1.5rem;
+  padding: 1rem;
+  border: 1px solid #d7e2d2;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #33502f;
+}
+
+.filter-panel * {
+  box-sizing: border-box;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.filter-field label {
+  color: #4f604b;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.filter-field select,
+.filter-field input {
+  width: 100%;
+  height: 42px;
+  padding: 0 0.8rem;
+  border: 1px solid #c9d2c4;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #222222;
+  font-size: 0.95rem;
+}
+
+.filter-field select:focus,
+.filter-field input:focus {
+  outline: 2px solid #8fb98b;
+}
+
+.filter-reset {
+  width: 96px;
+  height: 42px;
+  margin: 0;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 6px;
+  background-color: #e6eee2;
+  color: #33502f;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filter-reset:hover {
+  background-color: #d5e4cf;
+}
+
+@media (max-width: 720px) {
+  .filter-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-reset {
+    width: 100%;
+    min-width: 0;
+  }
+}
