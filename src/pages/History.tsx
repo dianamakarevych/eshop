@@ -192,28 +192,27 @@ const teaHistories: Record<string, TeaHistory> = {
 };
 
 const History = () => {
-    const { teaName } = useParams<{ teaName: string }>();
+    const { teaName: urlTeaName } = useParams<{ teaName: string }>();
     const navigate = useNavigate();
     const location = useLocation();
-    const state = location.state as { selectedMood?: string };
-    const decodedTeaName = decodeURIComponent(teaName || "");
     const selectedMood = location.state?.selectedMood ?? null;
-
-    // ✅ Replace the broken lines with these:
-    const normalizedName = decodedTeaName
-        .split("-")
-        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(" ");
-    const tea = teaHistories[normalizedName] ?? null;
     const teaImage = (location.state as any)?.teaImage ?? null;
+
+    // ✅ Use name from state if available, otherwise decode URL
+    const teaName = (location.state as any)?.teaName
+        ?? decodeURIComponent(urlTeaName || "")
+            .split("-")
+            .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(" ");
+
+    const tea = teaHistories[teaName] ?? null;
 
     if (!tea) {
         return (
             <div className="history-page">
                 <button
                     onClick={() =>
-                        navigate("/mood", { state: { selectedMood } })
-                    }
+                        navigate("/mood", { state: { selectedMood: selectedMood } })}
                 >
                     ← Back
                 </button>
@@ -224,14 +223,12 @@ const History = () => {
 
     return (
         <div className="history-page">
-            <button
-                onClick={() => navigate("/mood", { state: { selectedMood } })}
-            >
+            <button onClick={() => navigate("/", { state: { selectedMood } })}>
                 ← Back
             </button>
 
             {teaImage && (
-                <img src={teaImage} alt={decodedTeaName} className="history-tea-image" />
+                <img src={teaImage} alt={teaName} className="history-tea-image" />
             )}
 
             <div className="history-header">

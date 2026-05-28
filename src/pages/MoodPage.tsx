@@ -96,18 +96,26 @@ const moods: Mood[] = [
 ];
 
 const MoodPage = () => {
-    const [selectedMood, setSelectedMood] = useState<Mood | null>(null);
+    const [selectedMood, setSelectedMood] = useState<Mood | null>(null);  // ← always null on load
     const navigate = useNavigate();
     const location = useLocation();
-    const slugify = (name: string) =>
-        name.toLowerCase().replace(/\s/g, "-");
+    const slugify = (name: string) => name.toLowerCase().replace(/\s/g, "-");
 
     useEffect(() => {
+        const navigationEntry = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
+        const isReload = navigationEntry?.type === "reload";
+
+        if (isReload) {
+            setSelectedMood(null);
+            return;
+        }
+
         const state = location.state as { selectedMood?: Mood } | null;
         if (state?.selectedMood) {
-            setSelectedMood(state.selectedMood);
+            const found = moods.find(m => m.id === state.selectedMood!.id);
+            if (found) setSelectedMood(found);
         }
-    }, []);
+    }, [location]); // ← listen to location changes
 
     return (
 
@@ -137,9 +145,11 @@ const MoodPage = () => {
                 </div>
             ) : (
                 <div className="tea-results">
-                    <button className="back-btn" onClick={() => setSelectedMood(null)}>
-                        ← Back
-                    </button>
+                    {selectedMood && (
+                        <button className="back-btn" onClick={() => setSelectedMood(null)}>
+                            ← Back
+                        </button>
+                    )}
                     <p className="mood-icon-large">{selectedMood.icon}</p>
                     <h1>{selectedMood.title}</h1>
                     <p className="mood-subtitle">{selectedMood.subtitle}</p>
@@ -147,7 +157,8 @@ const MoodPage = () => {
                         {selectedMood.teas.map((tea, index) => (
                             <div key={index} className="tea-card" onClick={() =>
                                 navigate(`/history/${slugify(tea.name)}`, {
-                                    state: { selectedMood, tea, teaImage: tea.image }
+                                    state: { selectedMood, tea, teaImage: tea.image, teaName: tea.name }  // ← add teaName
+
                                 })
                             }>
                                 <img src={tea.image} alt={tea.name} className="tea-image" />

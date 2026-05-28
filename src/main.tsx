@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <GoogleOAuthProvider clientId="827178068168-abmtijqsq3rc8v8gqok7vu2vs6h7u4ug.apps.googleusercontent.com">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MoodPage />} />  {/* ← MoodPage as home */}
+          <Route path="/" element={<MoodPage />} />
           <Route path="/mood" element={<MoodPage />} />
           <Route path="/history/:teaName" element={<History />} />
         </Routes>
