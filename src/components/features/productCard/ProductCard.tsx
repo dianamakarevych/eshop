@@ -1,15 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; 
 import type { Product } from "../../../utils/ApiService";
+import { useCart } from "../../../context/CartContext";
 import "./ProductCard.css";
 
 interface ProductCardProps {
   product: Product;
+  quantity?: number; 
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, quantity = 0}) => {
   const navigate = useNavigate(); 
-
+  const { addToCart, removeFromCart } = useCart();
   const slugify = (text: string) => text.toLowerCase().replace(/\s+/g, "-");
 
   const handleCardClick = () => {
@@ -19,11 +21,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         teaImage: product.image 
       }
     });
-  };
-
-  const handleAddToCart = (e: React.MouseEvent) => {
-    e.stopPropagation(); 
-    alert(`"${product.title}" was added to cart!`);
   };
 
   return (
@@ -55,9 +52,31 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <span className="product-card__price">
             {product.price.toFixed(2)} EUR
           </span>
-          <button className="product-card__btn" onClick={handleAddToCart}>
-            +
-          </button>
+          
+          {quantity > 0 ? (
+            <div className="product-card__quantity-controls">
+              <button 
+                className="quantity-btn" 
+                onClick={(e) => { e.stopPropagation(); removeFromCart(product); }}
+              >
+                -
+              </button>
+              <span className="quantity-count">{quantity}</span>
+              <button 
+                className="quantity-btn" 
+                onClick={(e) => { e.stopPropagation(); addToCart(product); }}
+              >
+                +
+              </button>
+            </div>
+          ) : (
+            <button 
+              className="product-card__btn" 
+              onClick={(e) => { e.stopPropagation(); addToCart(product); }}
+            >
+              +
+            </button>
+          )}
         </div>
       </div>
     </div>

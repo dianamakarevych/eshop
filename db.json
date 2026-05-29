@@ -4,7 +4,7 @@
       
       "id": 1,
       "title": "Green Tea",
-      "price": 12.00,
+      "price": 1.2,
       "category": "Green Tea",
       "mood": "Focus",
       "image": "/images/moodpage/greentes.jpg",
@@ -17,7 +17,7 @@
     {
       "id": 2,
       "title": "Matcha",
-      "price": 18.50,
+      "price": 1.85,
       "category": "Green Tea",
       "mood": "Focus",
       "image": "/images/moodpage/matcha iced latte 🍵🧊.jpg",
@@ -30,7 +30,7 @@
     {
       "id": 3,
       "title": "Ginkgo Biloba",
-      "price": 14.00,
+      "price": 1.4,
       "category": "Herbal",
       "mood": "Focus",
       "image": "/images/moodpage/Ginkgo Bilobaart.jpg",
@@ -43,7 +43,7 @@
     {
       "id": 4,
       "title": "Chamomile",
-      "price": 10.50,
+      "price": 1.05,
       "category": "Herbal",
       "mood": "Unwind",
       "image": "/images/moodpage/Chamomileart.jpg",
@@ -56,7 +56,7 @@
     {
       "id": 5,
       "title": "Lavender",
-      "price": 11.00,
+      "price": 1.1,
       "category": "Herbal",
       "mood": "Unwind",
       "image": "/images/moodpage/Lavenderart.jpg",
@@ -69,7 +69,7 @@
     {
       "id": 6,
       "title": "Valerian Root",
-      "price": 13.00,
+      "price": 1.3,
       "category": "Herbal",
       "mood": "Unwind",
       "image": "/images/moodpage/Valerian Rootart.jpg",
@@ -82,7 +82,7 @@
     {
       "id": 7,
       "title": "Black Tea",
-      "price": 9.90,
+      "price": 0.99,
       "category": "Black Tea",
       "mood": "Energise",
       "image": "/images/moodpage/Black Teaart.jpg",
@@ -95,7 +95,7 @@
     {
       "id": 8,
       "title": "Yerba Mate",
-      "price": 15.00,
+      "price": 1.5,
       "category": "Herbal",
       "mood": "Energise",
       "image": "/images/moodpage/Yerba Mateart.jpg",
@@ -108,7 +108,7 @@
     {
       "id": 9,
       "title": "Ginger Tea",
-      "price": 12.50,
+      "price": 1.25,
       "category": "Herbal",
       "mood": "Energise",
       "image": "/images/moodpage/Ginger Teaart.jpg",
@@ -121,7 +121,7 @@
     {
       "id": 10,
       "title": "Pu-erh",
-      "price": 25.00,
+      "price": 2.5,
       "category": "Pu-erh",
       "mood": "Explore",
       "image": "/images/moodpage/Pu-erhart.jpg",
@@ -134,7 +134,7 @@
     {
       "id": 11,
       "title": "White Peony",
-      "price": 22.00,
+      "price": 2.2,
       "category": "White Tea",
       "mood": "Explore",
       "image": "/images/moodpage/White Peonyart.jpg",
@@ -147,7 +147,7 @@
     {
       "id": 12,
       "title": "Oolong",
-      "price": 19.00,
+      "price": 1.9,
       "category": "Oolong",
       "mood": "Explore",
       "image": "/images/moodpage/Oolongart.jpg",
@@ -160,7 +160,7 @@
     {
       "id": 13,
       "title": "Peppermint",
-      "price": 11.50,
+      "price": 1.1,
       "category": "Herbal",
       "mood": "Refresh",
       "image": "/images/moodpage/permintartt.jpg",
@@ -173,7 +173,7 @@
     {
       "id": 14,
       "title": "Hibiscus",
-      "price": 12.00,
+      "price": 1.2,
       "category": "Herbal",
       "mood": "Refresh",
       "image": "/images/moodpage/Hibiscus tea vector_tea illustration.jpg",
@@ -186,7 +186,7 @@
     {
       "id": 15,
       "title": "Lemon Verbena",
-      "price": 13.50,
+      "price": 1.35,
       "category": "Herbal",
       "mood": "Refresh",
       "image": "/images/moodpage/lemon verbena tea transparent background lemon verbena tea chinese drinks transparent ba.jpg",
@@ -199,7 +199,7 @@
     {
       "id": 16,
       "title": "Ceremonial Matcha",
-      "price": 35.00,
+      "price": 3.5,
       "category": "Green Tea",
       "mood": "Ritual",
       "image": "/images/moodpage/Ceremonial Matchaart.jpg",
@@ -212,7 +212,7 @@
     {
       "id": 17,
       "title": "Gyokuro",
-      "price": 28.00,
+      "price": 2.8,
       "category": "Green Tea",
       "mood": "Ritual",
       "image": "/images/moodpage/Gyokuroart.jpg",
@@ -225,7 +225,7 @@
     {
       "id": 18,
       "title": "Rose Tea",
-      "price": 16.00,
+      "price": 1.6,
       "category": "Herbal",
       "mood": "Ritual",
       "image": "/images/moodpage/Rose Teaart'.jpg",
@@ -234,6 +234,74 @@
         "rate": 4.7,
         "count": 260
       }
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "icon": "🌿",
+      "mood": "Focus",
+      "subtitle": "Clear mind, sustained energy without the crash.",
+      "teas": [
+        { "name": "Green Tea", "description": "Light and fresh", "benefit": "Boosts concentration with gentle caffeine", "image": "/images/moodpage/greentes.jpg", "price": 12.00 },
+        { "name": "Matcha", "description": "Rich and earthy", "benefit": "Sustained energy and mental clarity", "image": "/images/moodpage/matcha iced latte 🍵🧊.jpg", "price": 18.50 },
+        { "name": "Ginkgo Biloba", "description": "Herbal and mild", "benefit": "Enhances memory and focus", "image": "/images/moodpage/Ginkgo Bilobaart.jpg", "price": 14.00 }
+      ]
+    },
+    {
+      "id": 2,
+      "icon": "🌙",
+      "mood": "Unwind",
+      "subtitle": "Gentle, calming herbs to ease the evening.",
+      "teas": [
+        { "name": "Chamomile", "description": "Floral and soothing", "benefit": "Calms the mind before sleep", "image": "/images/moodpage/Chamomileart.jpg", "price": 10.50 },
+        { "name": "Lavender", "description": "Soft and fragrant", "benefit": "Reduces stress and anxiety", "image": "/images/moodpage/Lavenderart.jpg", "price": 11.00 },
+        { "name": "Valerian Root", "description": "Earthy and deep", "benefit": "Promotes deep relaxation", "image": "/images/moodpage/Valerian Rootart.jpg", "price": 13.00 }
+      ]
+    },
+    {
+      "id": 3,
+      "icon": "⚡",
+      "mood": "Energise",
+      "subtitle": "Bold, robust teas to kickstart your morning.",
+      "teas": [
+        { "name": "Black Tea", "description": "Bold and strong", "benefit": "High caffeine for a morning boost", "image": "/images/moodpage/Black Teaart.jpg", "price": 9.90 },
+        { "name": "Yerba Mate", "description": "Smoky and rich", "benefit": "Long-lasting energy without jitters", "image": "/images/moodpage/Yerba Mateart.jpg", "price": 15.00 },
+        { "name": "Ginger Tea", "description": "Spicy and warming", "benefit": "Stimulates circulation and energy", "image": "/images/moodpage/Ginger Teaart.jpg", "price": 12.50 }
+      ]
+    },
+    {
+      "id": 4,
+      "icon": "☁️",
+      "mood": "Explore",
+      "subtitle": "Complex, rare finds for the curious palate.",
+      "teas": [
+        { "name": "Pu-erh", "description": "Deep and aged", "benefit": "Unique fermented taste, aids digestion", "image": "/images/moodpage/Pu-erhart.jpg", "price": 25.00 },
+        { "name": "White Peony", "description": "Delicate and rare", "benefit": "Light floral notes, high antioxidants", "image": "/images/moodpage/White Peonyart.jpg", "price": 22.00 },
+        { "name": "Oolong", "description": "Balanced and complex", "benefit": "Between green and black, unique flavor", "image": "/images/moodpage/Oolongart.jpg", "price": 19.00 }
+      ]
+    },
+    {
+      "id": 5,
+      "icon": "🌸",
+      "mood": "Refresh",
+      "subtitle": "Cool and vibrant teas to reset your day.",
+      "teas": [
+        { "name": "Peppermint", "description": "Cool and crisp", "benefit": "Refreshes the mind and aids digestion", "image": "/images/moodpage/permintartt.jpg", "price": 11.50 },
+        { "name": "Hibiscus", "description": "Tart and fruity", "benefit": "Rich in vitamin C, cooling effect", "image": "/images/moodpage/Hibiscus tea vector_tea illustration.jpg", "price": 12.00 },
+        { "name": "Lemon Verbena", "description": "Citrusy and bright", "benefit": "Uplifting and refreshing", "image": "/images/moodpage/lemon verbena tea transparent background lemon verbena tea chinese drinks transparent ba.jpg", "price": 13.50 }
+      ]
+    },
+    {
+      "id": 6,
+      "icon": "🕯️",
+      "mood": "Ritual",
+      "subtitle": "Slow down and savour every sip.",
+      "teas": [
+        { "name": "Ceremonial Matcha", "description": "Vibrant and umami", "benefit": "Mindful preparation, zen-like focus", "image": "/images/moodpage/Ceremonial Matchaart.jpg", "price": 35.00 },
+        { "name": "Gyokuro", "description": "Sweet and shaded", "benefit": "Premium Japanese green, meditative", "image": "/images/moodpage/Gyokuroart.jpg", "price": 28.00 },
+        { "name": "Rose Tea", "description": "Romantic and soft", "benefit": "Perfect for a calming daily ritual", "image": "/images/moodpage/Rose Teaart'.jpg", "price": 16.00 }
+      ]
     }
   ]
 }

@@ -4,6 +4,7 @@ import Footer from './components/common/footer/Footer';
 import AppRoutes from './routes/AppRoutes';
 import './App.css';
 import { initializeStore } from './utils/initData';
+import { CartProvider } from './context/CartContext'; 
 
 function App() {
   useEffect(() => {
@@ -11,15 +12,17 @@ function App() {
   }, []);
   
   return (
-    <div className="App">
-      <Header />
-      
-      <main className="mainContent">
-        <AppRoutes />
-      </main>
+    <CartProvider> 
+      <div className="App">
+        <Header />
+        
+        <main className="mainContent">
+          <AppRoutes />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </CartProvider>
   );
 }
 
