@@ -1,6 +1,7 @@
 import React from "react";
 import ProductCard from "../../components/features/productCard/ProductCard";
 import type { Product } from "../../utils/ApiService";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import "./Cart.css";
 
@@ -18,6 +19,7 @@ interface CartProps {
 
 const Cart: React.FC<CartProps> = () => {
   const { cartItems, clearCart } = useCart();
+  const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.product.price * item.quantity,
@@ -25,9 +27,8 @@ const Cart: React.FC<CartProps> = () => {
   );
 
   const handleCheckout = () => {
-    alert("Proceeding to checkout. Thank you for your purchase!");
-    clearCart();
-  };
+    navigate("/checkout"); 
+};
 
   if (cartItems.length === 0) {
     return (

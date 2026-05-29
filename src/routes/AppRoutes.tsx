@@ -8,6 +8,7 @@ import Register from '../pages/Register/Register';
 import ProfilePage from "../pages/ProfilePage";
 import MoodPage from '../pages/MoodPage';
 import History from '../pages/History';
+import Checkout from '../pages/Checkout/Checkout';
 
 function AppRoutes(): JSX.Element {
   const location = useLocation();
@@ -24,6 +25,7 @@ function AppRoutes(): JSX.Element {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/mood" element={<MoodPage />} />
       <Route path="/history/:teaName" element={<History />} />
+      <Route path="/checkout" element={<Checkout />} />
     </Routes> 
   );
 }
