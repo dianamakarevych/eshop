@@ -3,15 +3,17 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(rgba(255, 255, 255, 0.349),
-      rgba(255, 255, 255, 0.151)),
-    url("/src/assets/Free\ \ Chinese\,\ Style\,\ Tea\ Background\ Images\,\ Chinese\ Tea\ Culture\ Poster\ Background\ Photo\ Background\ PNG\ and\ Vectors.jpg");
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+    url("/src/assets/tea-background.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .register-wrapper form {
-  background-color: white;
+  background-color: #ffffff; 
+  border-radius: 16px; 
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
   padding: 40px 60px;
   border-radius: 10px;
 }
